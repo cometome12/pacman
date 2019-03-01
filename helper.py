@@ -1,23 +1,31 @@
 import re
 from Pacman import Pacman
-from Constants import *
+from constants import *
 
 def isPlaceCommand(command):
     # PLACE command regex
     placeRe = r'^PLACE\s\d{1},\d{1},\D+$'
     return re.match(placeRe, command)
 
+def transferCommand(command):
+    # prevent the command passed in is not valid
+    if not isPlaceCommand(command):
+        return None
+    return command.split(' ')[1].split(',')
+
 def isValidDrection(command):
-    inputs = command.split(' ')[1].split(',')
-    return inputs[2] in [NORTH,SOUTH,EAST,WEST]
+    inputs = transferCommand(command)
+    return inputs[2] in [NORTH,SOUTH,EAST,WEST] if inputs else False
 
 def isValidXY(command,grid):
-    inputs = command.split(' ')[1].split(',')
-    return int(inputs[0]) < grid.xLength and int(inputs[1]) < grid.yLength
+    inputs = transferCommand(command)
+    return int(inputs[0]) < grid.xLength and int(inputs[1]) < grid.yLength if inputs else False
+
 
 def createPacmanFromCommand(command):
-    inputs = command.split(' ')[1].split(',')
-    return Pacman(int(inputs[0]),int(inputs[1]),inputs[2])
+    inputs = transferCommand(command)
+    # when command invalid, default Parman will be created to prevent further error
+    return Pacman(int(inputs[0]),int(inputs[1]),inputs[2]) if inputs else Pacman(0,0,NORTH)
 
 def isMoveOutOfBoundary(grid,pacman):
     exceedConditions = [

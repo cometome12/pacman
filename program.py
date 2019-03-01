@@ -1,7 +1,7 @@
 if __name__ == "__main__":
     from Grid import Grid
     from Pacman import Pacman
-    from Constants import *
+    from constants import *
     from helper import *
     import sys
 
