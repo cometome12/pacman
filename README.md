@@ -29,3 +29,6 @@ Under the root directory, run `python3 test.py`, there are five unit tests regar
 - test_move
 
 Please check comments in test.py for more detail.
+
+#### Note
+The second commit is my first submission which is fully functional, the forth commit is when I added tests, the seventh commit is when I accidentally found my renamed file "constants.py" has not been pushed here which will result in import error so I renamed it just now.
