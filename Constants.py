@@ -1,0 +1,14 @@
+NORTH = 'NORTH'
+WEST = 'WEST'
+EAST = 'EAST'
+SOUTH = 'SOUTH'
+MOVE = 'MOVE'
+PLACE = 'PLACE'
+REPORT = 'REPORT'
+LEFT = 'LEFT'
+RIGHT = 'RIGHT'
+MSG_PLACE = "Please place the pacman using the format of 'PLACE x,y,direction' first! e.g 'PLACE 0,0,NORTH'"
+MSG_DIRECTION = "Please make sure the direction argument be one of 'NORTH', 'EAST', 'SOUTH', 'WEST'"
+MSG_FURTHER_COMMAND = "Please instruct further by using commands 'MOVE','LEFT','RIGHT', 'REPORT' or 'PLACE x,y,direction' to reset the pacman: "
+MSG_NOT_VALID_INPUT = "Not valid command"
+MSG_XY = "Please ensure your x,y is within the the 5x5 size range"
